@@ -12,8 +12,8 @@
 | ch2 | 2.5 GKE 클러스터 | ✅ | 2026-07-10 | notiflex-cluster, Standard/Zonal, e2-medium x2 Spot |
 | ch2 | 2.6 빌드/배포 | ✅ | 2026-07-10 | notiflex-api v0.1.0, /health, /id 엔드포인트 |
 | ch2 | 2.7 첫 커밋 | ✅ | 2026-07-10 | |
-| ch3 | 3.2 GitOps 도구 | ⬜ | | |
-| ch3 | 3.3 기능 추가 | ⬜ | | |
+| ch3 | 3.2 GitOps 도구 | ✅ | 2026-07-11 | ArgoCD 설치, notiflex-smb Application 생성 (public repo, 별도 인증 불필요) |
+| ch3 | 3.3 기능 추가 | ✅ | 2026-07-11 | /version 엔드포인트 추가, v0.1.1 롤링 업데이트 |
 | ch3 | 3.4 CI | ⬜ | | |
 | ch3 | 3.5 CI-CD 연결 | ⬜ | | |
 | ch4 | 4.2 메트릭 모니터링 | ⬜ | | |
@@ -42,15 +42,15 @@
 
 | 영역 | 선택 | 검토한 대안 | 선택 이유 |
 |------|------|-----------|----------|
-| | | | |
+| GitOps 도구 (ch3.2) | ArgoCD | Flux, Jenkins X, Spinnaker | Web UI로 배포 상태를 시각적으로 확인 가능, e2-medium 2노드에서 리소스(~500MB) 감당 가능. Flux는 가볍지만 UI 없어서 학습 목적에 부적합 |
 
 ## 현재 버전
 
 | 컴포넌트 | 버전 | 변경 이력 |
 |---------|------|----------|
 | Go | 1.25 | 2026-07-10 최초 설정 (ch6 valkey-go, ch8 OTel SDK 요구사항 대비 처음부터 1.25로 시작) |
-| Notiflex 이미지 | v0.1.0 | 2026-07-10 최초 빌드 (scratch 베이스, /health, /id) |
-| ArgoCD | | |
+| Notiflex 이미지 | v0.1.1 | 2026-07-10 최초 빌드(v0.1.0) → 2026-07-11 /version 엔드포인트 추가(v0.1.1) |
+| ArgoCD | v3.4.5 | 2026-07-11 최초 설치 |
 | Kafka | | |
 | OTel SDK | | |
 
