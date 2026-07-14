@@ -16,7 +16,7 @@
 | ch3 | 3.3 기능 추가 | ✅ | 2026-07-11 | /version 엔드포인트 추가, v0.1.1 롤링 업데이트 |
 | ch3 | 3.4 CI | ✅ | 2026-07-14 | GitHub Actions 방식 A(docker build+push), notiflex-ci SA 생성, GCP_SA_KEY/GCP_PROJECT_ID secret 등록 |
 | ch3 | 3.5 CI-CD 연결 | ✅ | 2026-07-14 | CI가 이미지 빌드 후 deployment.yaml 태그를 sha 기반으로 자동 커밋/푸시, ArgoCD가 감지해 배포. 엔드투엔드(/ping) 검증 완료 |
-| ch4 | 4.2 메트릭 모니터링 | ⬜ | | |
+| ch4 | 4.2 메트릭 모니터링 | ⬜ | | (진행 중) kube-prometheus-stack 설치 및 Grafana UI 접속 확인 완료. 남은 것: Prometheus 수집 확인, Notiflex 대시보드 생성 |
 | ch4 | 4.3 로그 수집 | ⬜ | | |
 | ch4 | 4.4 알림 | ⬜ | | |
 | ch5 | 5.2 트래픽 관리 | ⬜ | | |
@@ -52,6 +52,7 @@
 | Go | 1.25 | 2026-07-10 최초 설정 (ch6 valkey-go, ch8 OTel SDK 요구사항 대비 처음부터 1.25로 시작) |
 | Notiflex 이미지 | sha-c870e08 | 2026-07-10 v0.1.0 → 2026-07-11 v0.1.1(/version) → 2026-07-14 CI-CD 연결 후부터 이미지 태그는 git SHA 기반(sha-xxxxxxx)으로 전환, /ping 엔드포인트 추가 |
 | ArgoCD | v3.4.5 | 2026-07-11 최초 설치 |
+| kube-prometheus-stack | 87.15.2 (app v0.92.1) | 2026-07-14 최초 설치 |
 | Kafka | | |
 | OTel SDK | | |
 
