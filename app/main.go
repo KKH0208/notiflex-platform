@@ -44,6 +44,6 @@ func main() {
 	mux.HandleFunc("GET /id", idHandler)
 	mux.HandleFunc("GET /version", versionHandler)
 
-	log.Println("notiflex-api listening on :8080")
+	log.Printf("notiflex-api %s listening on :8080", version)
 	log.Fatal(http.ListenAndServe(":8080", mux))
 }
