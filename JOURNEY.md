@@ -16,9 +16,9 @@
 | ch3 | 3.3 기능 추가 | ✅ | 2026-07-11 | /version 엔드포인트 추가, v0.1.1 롤링 업데이트 |
 | ch3 | 3.4 CI | ✅ | 2026-07-14 | GitHub Actions 방식 A(docker build+push), notiflex-ci SA 생성, GCP_SA_KEY/GCP_PROJECT_ID secret 등록 |
 | ch3 | 3.5 CI-CD 연결 | ✅ | 2026-07-14 | CI가 이미지 빌드 후 deployment.yaml 태그를 sha 기반으로 자동 커밋/푸시, ArgoCD가 감지해 배포. 엔드투엔드(/ping) 검증 완료 |
-| ch4 | 4.2 메트릭 모니터링 | ⬜ | | (진행 중) kube-prometheus-stack 설치 및 Grafana UI 접속 확인 완료. 남은 것: Prometheus 수집 확인, Notiflex 대시보드 생성 |
+| ch4 | 4.2 메트릭 모니터링 | ⬜ | | (진행 중) kube-prometheus-stack 설치, Grafana UI 접속, Prometheus 수집 확인(16/18 타겟 up, coredns 2개는 GKE 제약) 완료. 남은 것: Notiflex 전용 대시보드 생성 |
 | ch4 | 4.3 로그 수집 | ✅ | 2026-07-15 | Loki(SingleBinary) + Fluent Bit 설치, Grafana Loki 데이터소스 등록, notiflex 네임스페이스 로그 실제 수집 확인 |
-| ch4 | 4.4 알림 | ⬜ | | |
+| ch4 | 4.4 알림 | ✅ | 2026-07-15 | PrometheusRule(pod-restart-alert) 생성, Alertmanager는 이미 설치됨. Slack 등 외부 채널 연동은 하지 않기로 결정(알림 발생 자체만 구성) |
 | ch5 | 5.2 트래픽 관리 | ⬜ | | |
 | ch5 | 5.3 무중단 배포 | ⬜ | | |
 | ch6 | 6.1 캐시 | ⬜ | | |
