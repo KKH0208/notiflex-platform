@@ -27,6 +27,10 @@ func versionHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func pingHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("pong"))
+}
+
 func idHandler(w http.ResponseWriter, r *http.Request) {
 	id := counter.Add(1)
 	pod, _ := os.Hostname()
@@ -43,6 +47,7 @@ func main() {
 	mux.HandleFunc("GET /health", healthHandler)
 	mux.HandleFunc("GET /id", idHandler)
 	mux.HandleFunc("GET /version", versionHandler)
+	mux.HandleFunc("GET /ping", pingHandler)
 
 	log.Printf("notiflex-api %s listening on :8080", version)
 	log.Fatal(http.ListenAndServe(":8080", mux))
