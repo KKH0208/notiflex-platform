@@ -15,7 +15,7 @@
 | ch3 | 3.2 GitOps 도구 | ✅ | 2026-07-11 | ArgoCD 설치, notiflex-smb Application 생성 (public repo, 별도 인증 불필요) |
 | ch3 | 3.3 기능 추가 | ✅ | 2026-07-11 | /version 엔드포인트 추가, v0.1.1 롤링 업데이트 |
 | ch3 | 3.4 CI | ✅ | 2026-07-14 | GitHub Actions 방식 A(docker build+push), notiflex-ci SA 생성, GCP_SA_KEY/GCP_PROJECT_ID secret 등록 |
-| ch3 | 3.5 CI-CD 연결 | ⬜ | | |
+| ch3 | 3.5 CI-CD 연결 | ✅ | 2026-07-14 | CI가 이미지 빌드 후 deployment.yaml 태그를 sha 기반으로 자동 커밋/푸시, ArgoCD가 감지해 배포. 엔드투엔드(/ping) 검증 완료 |
 | ch4 | 4.2 메트릭 모니터링 | ⬜ | | |
 | ch4 | 4.3 로그 수집 | ⬜ | | |
 | ch4 | 4.4 알림 | ⬜ | | |
@@ -50,7 +50,7 @@
 | 컴포넌트 | 버전 | 변경 이력 |
 |---------|------|----------|
 | Go | 1.25 | 2026-07-10 최초 설정 (ch6 valkey-go, ch8 OTel SDK 요구사항 대비 처음부터 1.25로 시작) |
-| Notiflex 이미지 | v0.1.1 | 2026-07-10 최초 빌드(v0.1.0) → 2026-07-11 /version 엔드포인트 추가(v0.1.1) |
+| Notiflex 이미지 | sha-c870e08 | 2026-07-10 v0.1.0 → 2026-07-11 v0.1.1(/version) → 2026-07-14 CI-CD 연결 후부터 이미지 태그는 git SHA 기반(sha-xxxxxxx)으로 전환, /ping 엔드포인트 추가 |
 | ArgoCD | v3.4.5 | 2026-07-11 최초 설치 |
 | Kafka | | |
 | OTel SDK | | |
@@ -68,3 +68,5 @@
 | 챕터 | 문제 | 해결 |
 |------|------|------|
 | ch2.6 | `gcloud builds submit` 실행 시 `PERMISSION_DENIED` (Cloud Build API를 막 활성화한 직후) | IAM 전파 지연 문제. 약 1분 대기 후 재시도하니 정상 성공 |
+| ch3.4 | `.github/workflows/` 파일 push 시 `refusing to allow an OAuth App to create or update workflow` 거부 | gh 인증 토큰에 `workflow` 스코프 없음 → `gh auth refresh -h github.com -s workflow`로 스코프 추가 |
+| ch3.5 | CI가 생성한 커밋이 push되지 않고 실패 우려 | 저장소 `Settings → Actions → Workflow permissions`가 기본 `Read`였음 → `default_workflow_permissions=write`로 변경 |
