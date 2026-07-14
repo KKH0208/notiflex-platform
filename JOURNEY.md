@@ -14,7 +14,7 @@
 | ch2 | 2.7 첫 커밋 | ✅ | 2026-07-10 | |
 | ch3 | 3.2 GitOps 도구 | ✅ | 2026-07-11 | ArgoCD 설치, notiflex-smb Application 생성 (public repo, 별도 인증 불필요) |
 | ch3 | 3.3 기능 추가 | ✅ | 2026-07-11 | /version 엔드포인트 추가, v0.1.1 롤링 업데이트 |
-| ch3 | 3.4 CI | ⬜ | | |
+| ch3 | 3.4 CI | ✅ | 2026-07-14 | GitHub Actions 방식 A(docker build+push), notiflex-ci SA 생성, GCP_SA_KEY/GCP_PROJECT_ID secret 등록 |
 | ch3 | 3.5 CI-CD 연결 | ⬜ | | |
 | ch4 | 4.2 메트릭 모니터링 | ⬜ | | |
 | ch4 | 4.3 로그 수집 | ⬜ | | |
@@ -43,6 +43,7 @@
 | 영역 | 선택 | 검토한 대안 | 선택 이유 |
 |------|------|-----------|----------|
 | GitOps 도구 (ch3.2) | ArgoCD | Flux, Jenkins X, Spinnaker | Web UI로 배포 상태를 시각적으로 확인 가능, e2-medium 2노드에서 리소스(~500MB) 감당 가능. Flux는 가볍지만 UI 없어서 학습 목적에 부적합 |
+| CI 도구 (ch3.4) | GitHub Actions | Cloud Build, GitLab CI, Jenkins | GitHub 네이티브라 별도 서버 불필요, YAML 선언적 파이프라인, 프라이빗도 월 2,000분 무료. Cloud Build는 GitHub 트리거 설정이 별도 필요, Jenkins는 서버 운영 부담 |
 
 ## 현재 버전
 
